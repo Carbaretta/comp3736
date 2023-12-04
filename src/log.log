@@ -1,0 +1,24 @@
+12/04/2023 04:48:15 PM | INFO: * Running on http://127.0.0.1:5100/ (Press CTRL+C to quit)
+12/04/2023 04:48:16 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:16] "GET / HTTP/1.1" 200 -
+12/04/2023 04:48:16 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:16] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+12/04/2023 04:48:18 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:18] "[32mPOST / HTTP/1.1[0m" 302 -
+12/04/2023 04:48:18 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:18] "GET /questiontest HTTP/1.1" 200 -
+12/04/2023 04:48:18 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:18] "[36mGET /static/dataset_5_area.png HTTP/1.1[0m" 304 -
+12/04/2023 04:48:20 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:20] "[32mPOST /questiontest HTTP/1.1[0m" 302 -
+12/04/2023 04:48:20 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:20] "GET /questiontest HTTP/1.1" 200 -
+12/04/2023 04:48:20 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:20] "[36mGET /static/dataset_4_line.png HTTP/1.1[0m" 304 -
+12/04/2023 04:48:22 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:22] "[32mPOST /questiontest HTTP/1.1[0m" 302 -
+12/04/2023 04:48:22 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:22] "GET /questiontest HTTP/1.1" 200 -
+12/04/2023 04:48:22 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:22] "[36mGET /static/dataset_7_area.png HTTP/1.1[0m" 304 -
+12/04/2023 04:48:23 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:23] "[32mPOST /questiontest HTTP/1.1[0m" 302 -
+12/04/2023 04:48:23 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:23] "GET /questiontest HTTP/1.1" 200 -
+12/04/2023 04:48:23 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:23] "[36mGET /static/dataset_2_area.png HTTP/1.1[0m" 304 -
+12/04/2023 04:48:32 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:32] "[32mPOST /questiontest HTTP/1.1[0m" 302 -
+12/04/2023 04:48:32 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:32] "GET /questiontest HTTP/1.1" 200 -
+12/04/2023 04:48:32 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:32] "[36mGET /static/dataset_8_area.png HTTP/1.1[0m" 304 -
+12/04/2023 04:48:33 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:33] "[32mPOST /questiontest HTTP/1.1[0m" 302 -
+12/04/2023 04:48:33 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:33] "GET /questiontest HTTP/1.1" 200 -
+12/04/2023 04:48:33 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:33] "[36mGET /static/dataset_7_line.png HTTP/1.1[0m" 304 -
+12/04/2023 04:48:33 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:33] "[32mPOST /questiontest HTTP/1.1[0m" 302 -
+12/04/2023 04:48:33 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:33] "GET /questiontest HTTP/1.1" 200 -
+12/04/2023 04:48:33 PM | INFO:127.0.0.1 - - [04/Dec/2023 16:48:33] "[36mGET /static/dataset_2_line.png HTTP/1.1[0m" 304 -

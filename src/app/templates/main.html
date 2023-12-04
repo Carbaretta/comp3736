@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<title>Participant Number</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(45deg, #FF6B6B, #FFB88C);
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"] {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 200px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+    input[type="submit"] {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+<body>
+  <div class="container">
+    <h1>Participant Number</h1>
+    <!--Form for creating an entry-->
+    <form method="post" name="all_b">
+      {{ form.hidden_tag() }}
+      {{ form.number(class_='form-control') }}
+      <!--Displays any errors-->
+      {% for error in form.number.errors %}
+        <div class="alert alert-danger" role="alert">
+          [{{ error }}]
+        </div>
+      {% endfor %}
+      <br>
+      <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+    </form>
+  </div>
+</body>
+{% endblock %}
