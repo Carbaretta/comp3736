@@ -1,6 +1,6 @@
 graphfile,question,optiona,optionb,optionc,optiond,correct,daset
-dataset_1_area.png, Which year had the least medals across all countries?, 1984, 1992, 2004, 2012, 2020, 2004, 1
-dataset_1_line.png, Which year had the least medals across all countries?, 1984, 1992, 2004, 2012, 2020, 2004, 1
+dataset_1_area.png, Which year had the least medals across all countries?, 1984, 1992, 2004, 2012, 2004, 1
+dataset_1_line.png, Which year had the least medals across all countries?, 1984, 1992, 2004, 2012, 2004, 1
 dataset_2_area.png, How many medals were won in 2012?, 480, 330, 1100, 180, 480, 2
 dataset_2_line.png, How many medals were won in 2012?, 480, 330, 1100, 180, 480, 2
 dataset_3_area.png, How many medals did France win in 2020?, 50, 200, 100, 70, 100, 3
