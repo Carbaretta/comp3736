@@ -5,30 +5,32 @@ from flask_login import current_user, login_user, logout_user
 import logging
 import time
 import random
+import json
 
 prevtime = 0
 count = 0
+partNum = ""
 answersDict = {}
-arr = [["dataset_1_area.png", "Which year had the least medals across all countries?", "1984", "1992", "2004", "2012", "2004", "1a"],
-    ["dataset_1_line.png", "Which year had the least medals across all countries?", "1984", "1992", "2004", "2012", "2004", "1l"],
-    ["dataset_2_area.png", "How many medals were won in 2012?", "480", "330", "1100", "180", "480", "2a"],
-    ["dataset_2_line.png", "How many medals were won in 2012?", "480", "330", "1100", "180", "480", "2l"],
-    ["dataset_3_area.png", "How many medals did France win in 2020?", "50", "200", "100", "70", "100", "3a"],
-    ["dataset_3_line.png", "How many medals did France win in 2020?", "50", "200", "100", "70", "100", "3l"],
+arr = [["dataset_1_area.png", "Which year had the least medals across all countries?", "1984", "1992", "2004", "2012", "1992", "1a"],
+    ["dataset_1_line.png", "Which year had the least medals across all countries?", "1984", "1992", "2004", "2012", "1992", "1l"],
+    ["dataset_2_area.png", "How many medals were won in 2012?", "160", "180", "127", "108", "127", "2a"],
+    ["dataset_2_line.png", "How many medals were won in 2012?", "160", "180", "127", "108", "127", "2l"],
+    ["dataset_3_area.png", "How many medals did Japan win in 2020?", "32", "28", "40", "39", "32", "3a"],
+    ["dataset_3_line.png", "How many medals did Japan win in 2020?", "32", "28", "40", "39", "32", "3l"],
     ["dataset_4_area.png", "How many years does the data cover?", "10", "20", "36", "4", "36", "4a"],
     ["dataset_4_line.png", "How many years does the data cover?", "10", "20", "36", "4", "36", "4l"],
-    ["dataset_5_area.png", "In which year were the fewest medals won?", "2016", "2020", "2012", "2008", "2012", "5a"],
-    ["dataset_5_line.png", "In which year were the fewest medals won?", "2016", "2020", "2012", "2008", "2012", "5l"],
-    ["dataset_6_area.png", "Which country won the most medals in 2004?", "France", "USA", "Germany", "Canada", "Canada", "6a"],
-    ["dataset_6_line.png", "Which country won the most medals in 2004?", "France", "USA", "Germany", "Canada", "Canada", "6l"],
-    ["dataset_7_area.png", "In which year did the USA win the most medals?", "2016", "2004", "1994", "2020", "2004", "7a"],
-    ["dataset_7_line.png", "In which year did the USA win the most medals?", "2016", "2004", "1994", "2020", "2004", "7l"],
-    ["dataset_8_area.png", "In which year did Canada win 2 medals fewer than the UK?", "1988", "2020", "2004", "2016", "2016", "8a"],
-    ["dataset_8_line.png", "In which year did Canada win 2 medals fewer than the UK?", "1988", "2020", "2004", "2016", "2016", "8l"],
-    ["dataset_9_area.png", "In which year did Japan win the fewest medals?", "1988", "1984", "1996", "2020", "1996", "9a"],
-    ["dataset_9_line.png", "In which year did Japan win the fewest medals?", "1988", "1984", "1996", "2020", "1996", "9l"],
-    ["dataset_10_area.png", "In 2008, which two countries won the least medals?", "Switzerland & Germany", "Japan & UK", "Canada & USA", "France & Germany", "Japan & UK", "10a"],
-    ["dataset_10_line.png", "In 2008, which two countries won the least medals?", "Switzerland & Germany", "Japan & UK", "Canada & USA", "France & Germany", "Japan & UK", "10l"]
+    ["dataset_5_area.png", "In which year were the fewest medals won?", "2016", "2020", "2012", "2000", "2000", "5a"],
+    ["dataset_5_line.png", "In which year were the fewest medals won?", "2016", "2020", "2012", "2000", "2000", "5l"],
+    ["dataset_6_area.png", "Which country won the most medals in 2004?", "Japan", "USA", "UK", "Canada", "USA", "6a"],
+    ["dataset_6_line.png", "Which country won the most medals in 2004?", "Japan", "USA", "UK", "Canada", "USA", "6l"],
+    ["dataset_7_area.png", "In which year did the USA win the most medals?", "1984", "1992", "1994", "2020", "1984", "7a"],
+    ["dataset_7_line.png", "In which year did the USA win the most medals?", "1984", "1992", "1994", "2020", "1984", "7l"],
+    ["dataset_8_area.png", "Which country won the least medals in a single year?", "Japan", "Canada", "UK", "USA", "Japan", "8a"],
+    ["dataset_8_line.png", "Which country won the least medals in a single year?", "Japan", "Canada", "UK", "USA", "Japan", "8l"],
+    ["dataset_9_area.png", "In which year did France win the most medals?", "1988", "2012", "1996", "2020", "2012", "9a"],
+    ["dataset_9_line.png", "In which year did France win the most medals?", "1988", "2012", "1996", "2020", "2012", "9l"],
+    ["dataset_10_area.png", "Which country has never won more than 80 medals?", "UK", "Switzerland", "Germany", "France", "UK", "10a"],
+    ["dataset_10_line.png", "Which country has never won more than 80 medals?", "UK", "Switzerland", "Germany", "France", "UK", "10l"]
 ]
 random.shuffle(arr)
 
@@ -37,6 +39,7 @@ random.shuffle(arr)
 def questiontest():
     global count
     global prevtime
+    global partNum
     form = AnswerButtonForm()
     if form.validate_on_submit():
         print("\n")
@@ -56,6 +59,9 @@ def questiontest():
         if count != 20:
             return redirect(url_for('questiontest'))
         else:
+            filename = str(partNum) + ".json"
+            with open(filename, "w") as outfile: 
+                json.dump(dict(sorted(answersDict.items())), outfile)
             return redirect(url_for('main'))
     return render_template('questiontest.html', title='Question Test', form=form, arr=arr, count=count)
 
@@ -63,9 +69,11 @@ def questiontest():
 @app.route('/', methods=['GET', 'POST'])
 def main():
     global prevtime
+    global partNum
     form = PartNumForm()
     #Form validation
     if form.validate_on_submit():
+        partNum = form.number.data
         print("Participant Number:", form.number.data)
         print("Start Time:", time.time())
         prevtime = time.time()
